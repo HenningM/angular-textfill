@@ -1,0 +1,10 @@
+{
+  "name": "angular-textfill",
+  "version": "0.1.0",
+  "authors": [
+    "Henning Morud <h.morud@sportradar.com>"
+  ],
+  "description": "Angular directive for the jQuery TextFill plugin",
+  "main": "angular-textfill.js",
+  "license": "MIT"
+}

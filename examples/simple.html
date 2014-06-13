@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Simple angular-textfill example</title>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://jquery-textfill.github.com/jquery-textfill/jquery.textfill.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src="../angular-textfill.js"></script>
+    <script type="text/javascript">
+      var module = angular.module('textfillExample', ['ngTextFill']);
+
+      module.controller('AppCtrl', function ($scope) {
+        $scope.sampleText = 'Hello world';
+      });
+    </script>
+
+    <style>
+      div[textfill] {
+        width: 600px;
+        height: 200px;
+        background: #CCC;
+      }
+    </style>
+  </head>
+  <body ng-app="textfillExample" ng-controller="AppCtrl">
+    <div textfill="{{sampleText}}" max-font-pixels="800"></div>
+    <input ng-model="sampleText"></input>
+  </body>
+</html>

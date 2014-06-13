@@ -11,8 +11,6 @@ angular.module('ngTextFill', [])
       link: function (scope, ele, attr) {
         var container = ele.find('div');
         var span = container.find('span');
-        container.css('height', 'inherit');
-        container.css('width', 'inherit');
         span.css('whiteSpace', 'nowrap');
         var options = {
           debug: attr.debug,

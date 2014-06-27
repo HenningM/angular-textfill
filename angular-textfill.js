@@ -13,10 +13,10 @@ angular.module('ngTextFill', [])
         var span = container.find('span');
         span.css('whiteSpace', 'nowrap');
         var options = {
-          debug: attr.debug,
-          minFontPixels: attr.minFontPixels,
-          maxFontPixels: attr.maxFontPixels,
-          widthOnly: attr.widthOnly
+          debug: attr.debug || false,
+          minFontPixels: attr.minFontPixels || 4,
+          maxFontPixels: attr.maxFontPixels || 40,
+          widthOnly: attr.widthOnly || false
         };
         container.textfill(options);
 

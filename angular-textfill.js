@@ -7,17 +7,19 @@ angular.module('ngTextFill', [])
       scope: {
         textfill: '@'
       },
-      template: '<div><span>{{textfill}}</span></div>',
-      link: function (scope, ele, attr) {
-        var container = ele.find('div');
-        var span = container.find('span');
-        span.css('whiteSpace', 'nowrap');
-        var options = {
-          debug: attr.debug || false,
-          minFontPixels: attr.minFontPixels || 4,
-          maxFontPixels: attr.maxFontPixels || 40,
-          widthOnly: attr.widthOnly || false
-        };
+      template: '<span>{{textfill}}</span>',
+      link: function (scope, element, attr) {
+        var container = element,
+            options = {
+              innerTag: attr.innerTag || "span",
+              debug: attr.debug || false,
+              minFontPixels: parseInt(attr.minFontPixels) || 4,
+              maxFontPixels: parseInt(attr.maxFontPixels) || 40,
+              widthOnly: attr.widthOnly || false,
+              explicitHeight: attr.explicitHeight || null,
+              explicitWidth: attr.explicitWidth || null
+            };
+            
         container.textfill(options);
 
         scope.$watch('textfill', function () {

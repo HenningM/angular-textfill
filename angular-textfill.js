@@ -5,7 +5,10 @@ angular.module('ngTextFill', [])
     return {
       restrict: 'A',
       scope: {
-        textfill: '@'
+        textfill: '@',
+        textfillOnSuccess: '=',
+        textfillOnFail: '=',
+        textfillOnComplete: '='
       },
       template: '<span>{{textfill}}</span>',
       link: function (scope, element, attr) {
@@ -17,9 +20,12 @@ angular.module('ngTextFill', [])
               maxFontPixels: parseInt(attr.maxFontPixels) || 40,
               widthOnly: attr.widthOnly || false,
               explicitHeight: attr.explicitHeight || null,
-              explicitWidth: attr.explicitWidth || null
+              explicitWidth: attr.explicitWidth || null,
+              success: scope.textfillOnSuccess || null,
+              fail: scope.textfillOnFail || null,
+              complete: scope.textfillOnComplete || null
             };
-            
+
         container.textfill(options);
 
         scope.$watch('textfill', function () {

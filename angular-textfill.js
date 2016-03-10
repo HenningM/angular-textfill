@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('ngTextFill', [])
-  .directive('textfill', function ($timeout) {
+  .directive('textfill', ['$timeout', function ($timeout) {
     return {
       restrict: 'A',
       scope: {
@@ -33,4 +33,4 @@ angular.module('ngTextFill', [])
         });
       }
     };
-  });
+  }]);

@@ -10,6 +10,16 @@
 
       module.controller('AppCtrl', function ($scope) {
         $scope.sampleText = 'Hello world';
+
+        $scope.onSuccess = function () {
+          console.log('Successfully resized text');
+        };
+        $scope.onFail = function () {
+          console.log('Textfill failed');
+        };
+        $scope.onComplete = function () {
+          console.log('Textfill completed');
+        };
       });
     </script>
 
@@ -20,13 +30,19 @@
         background: #CCC;
       }
 
-      div[textfill] > div {
-        height: inherit;
+      div[textfill] > span {
+        white-space: nowrap;
       }
     </style>
   </head>
   <body ng-app="textfillExample" ng-controller="AppCtrl">
-    <div textfill="{{sampleText}}" max-font-pixels="800"></div>
+    <div
+      textfill="{{sampleText}}"
+      textfill-on-success="onSuccess"
+      textfill-on-fail="onFail"
+      textfill-on-complete="onComplete"
+      max-font-pixels="800">
+    </div>
     <input ng-model="sampleText"></input>
   </body>
 </html>
